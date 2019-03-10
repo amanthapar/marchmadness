@@ -1,3 +1,4 @@
-deploy.js
-web3.js
+ethereum/deploy.js
+ethereum/web3.js
 secrets.js
+ADDRESS
