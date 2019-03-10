@@ -14,7 +14,8 @@ contract MarchMadnessFactory {
 }
 
 contract MarchMadness {
-     struct data {
+
+    struct data {
         string description;
         string name;
         string imageUrl;
@@ -26,7 +27,7 @@ contract MarchMadness {
     string[] public names;
     data[] public MarchMadnessdata;
 
-        constructor(address creator, string name, string description, string imageUrl) public {
+    constructor(address creator, string name, string description, string imageUrl) public {
         //msg object available all over the contract
         manager = creator;
         data memory newMarchMadnessdata = data(name, description, imageUrl);
@@ -52,7 +53,7 @@ contract MarchMadness {
         players = new address[](0);
     }
 
-     function pickSelectedWinner(uint idx) public restricted {
+    function pickSelectedWinner(uint idx) public restricted {
         //send money to this player from contract balance
         players[idx].transfer(this.balance);
         lastWinner = players[idx];
