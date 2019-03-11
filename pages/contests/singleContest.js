@@ -3,7 +3,7 @@ import { Card, Grid, Button } from 'semantic-ui-react';
 import Layout from '../../components/Layout';
 import fetchContest from '../../ethereum/marchmadness';
 import web3 from '../../ethereum/web3';
-// import ContributeForm from '../../components/ContributeForm';
+import ContributeForm from '../../components/ContributeForm';
 import { Link } from '../../routes';
 
 export default class SingleContest extends Component {
@@ -32,13 +32,13 @@ export default class SingleContest extends Component {
     const items = [
       {
         header: managerName,
-        meta: 'Creator of Contest',
+        meta: 'Manager/Creator of Contest',
         description:
           'Manager can pick winner of contest, and end it anytime. (Does not have ability to decide who wins)',
       },
       {
         header: manager,
-        meta: 'Address of Manager',
+        meta: 'Address of Manager/Creator',
         description: 'Address of Wallet of manager',
         style: { overflowWrap: 'break-word' },
       },
@@ -70,7 +70,7 @@ export default class SingleContest extends Component {
             <Grid.Column width={10}>{this.renderSingleContest()}</Grid.Column>
 
             <Grid.Column width={6}>
-              {/* <ContributeForm address={this.props.address} /> */}
+              <ContributeForm address={this.props.address} />
             </Grid.Column>
           </Grid.Row>
 

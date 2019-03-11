@@ -49,7 +49,7 @@ contract MarchMadness {
         uint index = random() % players.length;
         //send money to this player from contract balance
         players[index].transfer(this.balance);
-        // lastWinner = players[index];
+        lastWinner = players[index];
         players = new address[](0);
     }
 
