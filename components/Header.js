@@ -15,7 +15,7 @@ const Header = () => {
       <Link route="/">
         <a className="item">MARCH MADNESS 2019</a>
       </Link>
-      <Link route="/contests/about">
+      <Link route="/about">
         <a className="item">About</a>
       </Link>
       <Menu.Menu position="right">

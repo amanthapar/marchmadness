@@ -3,7 +3,7 @@ import MMFactory from './build/MarchMadnessFactory.json';
 
 const factoryInstance = new web3.eth.Contract(
   JSON.parse(MMFactory.interface),
-  '0x8853FF5D959295D20db2F9Cb144760860F8d5e97'
+  '0x25f3e36545ef404972d38b4aC2016557D4e6FC84'
 );
 
 export default factoryInstance;

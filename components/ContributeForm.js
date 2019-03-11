@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Input, Button, Message } from 'semantic-ui-react';
+import { Form, Input, Button, Message, Select } from 'semantic-ui-react';
 import MarchMadness from '../ethereum/marchmadness';
 import web3 from '../ethereum/web3';
 import { Router } from '../routes';
@@ -11,6 +11,7 @@ export default class ContributeForm extends Component {
     loading: false,
     message: '',
     name: '',
+    team: '',
   };
 
   onSubmit = async event => {
@@ -20,8 +21,7 @@ export default class ContributeForm extends Component {
     try {
       this.setState({ message: 'Please wait upto 15 seconds' });
       const accounts = await web3.eth.getAccounts();
-      console.log(this.state.name);
-      await marchmadness.methods.enter(this.state.name).send({
+      await marchmadness.methods.enter(this.state.name, this.state.team).send({
         from: accounts[0],
         value: web3.utils.toWei(this.state.value, 'ether'),
       });
@@ -40,6 +40,19 @@ export default class ContributeForm extends Component {
             onChange={event => this.setState({ name: event.target.value })}
             value={this.state.name}
             placeholder="Enter Name"
+          />
+          <Select
+            placeholder="Select Team"
+            fluid
+            value={this.state.team}
+            selection
+            onChange={(event, data) => {
+              this.setState({ team: data.value });
+            }}
+            options={[
+              { key: 1, text: 'Team A', value: 'Team A' },
+              { key: 2, text: 'Team B', value: 'Team B' },
+            ]}
           />
           <Input
             onChange={event => this.setState({ value: event.target.value })}

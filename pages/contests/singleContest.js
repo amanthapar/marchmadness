@@ -34,7 +34,7 @@ export default class SingleContest extends Component {
         header: managerName,
         meta: 'Manager/Creator of Contest',
         description:
-          'Manager can pick winner of contest, and end it anytime. (Does not have ability to decide who wins)',
+          'Only Manager can pick winner of contest, and end it anytime. (Does not have ability to decide who wins)',
       },
       {
         header: manager,
@@ -76,11 +76,11 @@ export default class SingleContest extends Component {
 
           <Grid.Row>
             <Grid.Column>
-              {/* <Link route={`/contests/${this.props.address}/requests`}>
+              <Link route={`/contests/${this.props.address}/players`}>
                 <a>
-                  <Button primary>View Withdrawal Requests</Button>
+                  <Button primary>View Current Player list</Button>
                 </a>
-              </Link> */}
+              </Link>
             </Grid.Column>
           </Grid.Row>
         </Grid>

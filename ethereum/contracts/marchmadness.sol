@@ -25,6 +25,7 @@ contract MarchMadness {
     address public lastWinner;
     address[] public players;
     string[] public names;
+    string[] public teams;
     data[] public MarchMadnessdata;
 
     constructor(address creator, string name, string description, string imageUrl) public {
@@ -34,10 +35,11 @@ contract MarchMadness {
         MarchMadnessdata.push(newMarchMadnessdata);
     }
 
-    function enter(string name) public payable {
+    function enter(string name, string team) public payable {
         require(msg.value > .01 ether); //validation - boolean
         players.push(msg.sender);
         names.push(name);
+        teams.push(team);
     }
 
     function random() public view returns (uint) {
