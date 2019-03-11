@@ -18,6 +18,7 @@ const Header = () => {
       <Link route="/about">
         <a className="item">About</a>
       </Link>
+      <div>Sports Betting Decentralized App with Smart Contracts.</div>
       <Menu.Menu position="right">
         <Menu.Item>
           <Icon name="basketball ball" size="large" />
