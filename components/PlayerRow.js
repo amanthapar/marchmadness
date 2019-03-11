@@ -19,8 +19,8 @@ export default class RequestRow extends Component {
     return (
       <Row>
         <Cell>{id}</Cell>
-        <Cell>{names}</Cell>
-        <Cell>{team}</Cell>
+        <Cell>{names[id]}</Cell>
+        <Cell>{team[id]}</Cell>
         <Cell>{player}</Cell>
         <Cell>
           {

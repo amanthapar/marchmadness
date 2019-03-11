@@ -4,7 +4,7 @@ import { Button, Table } from 'semantic-ui-react';
 import MarchMadness from '../../../ethereum/marchmadness';
 import PlayerRow from '../../../components/PlayerRow';
 import web3 from '../../../ethereum/web3';
-import { Link } from '../../../routes';
+import { Link, Router } from '../../../routes';
 export default class PlayerList extends Component {
   state = {
     message: '',
@@ -48,6 +48,7 @@ export default class PlayerList extends Component {
     this.setState({ message: 'Waiting on transaction success' });
     await contest.methods.pickWinner().send({ from: accounts[0] });
     this.setState({ message: 'A winner has been picked!' });
+    Router.pushRoute(`/contests/${this.props.address}`);
   };
 
   renderRow() {
