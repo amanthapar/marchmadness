@@ -7,20 +7,23 @@ import { Link } from '../routes';
 export default class MarchMadnessIndex extends Component {
   static async getInitialProps() {
     const contests = await factory.methods.getDeployedMarchMadness().call();
-    console.log(contests);
     return { contests };
   }
 
   renderContests() {
     const items = this.props.contests.map(address => ({
       header: address,
+      meta: 'Created by Aman',
+      extra: 'Open',
       description: (
         <Link route={`/campaigns/${address}`}>
           <a>View Contest Details</a>
         </Link>
       ),
+      style: { overflowWrap: 'break-word' },
       fluid: false,
-      image: 'https://react.semantic-ui.com/images/avatar/large/daniel.jpg',
+      image:
+        'https://www.ncaa.com/sites/default/files/public/styles/original/public-s3/tile-images/event/19_MBB_FinalFour_FC_RGB.png?itok=IulihWXF',
     }));
     return <Card.Group items={items} />;
   }
