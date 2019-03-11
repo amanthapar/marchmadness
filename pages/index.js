@@ -16,7 +16,7 @@ export default class MarchMadnessIndex extends Component {
       meta: 'Created by Aman',
       extra: 'Open',
       description: (
-        <Link route={`/campaigns/${address}`}>
+        <Link route={`/contests/${address}`}>
           <a>View Contest Details</a>
         </Link>
       ),
