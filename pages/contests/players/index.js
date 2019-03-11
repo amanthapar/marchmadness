@@ -44,8 +44,9 @@ export default class PlayerList extends Component {
 
   onClick = async () => {
     const accounts = await web3.eth.getAccounts();
+    const contest = MarchMadness(this.props.address);
     this.setState({ message: 'Waiting on transaction success' });
-    await MarchMadness.methods.pickWinner().send({ from: accounts[0] });
+    await contest.methods.pickWinner().send({ from: accounts[0] });
     this.setState({ message: 'A winner has been picked!' });
   };
 
@@ -93,7 +94,7 @@ export default class PlayerList extends Component {
           <Body>{this.renderRow()}</Body>
         </Table>
         <div>Found {this.props.playerCount} players.</div>
-        <div> {this.state.message} </div>
+        <h3> {this.state.message} </h3>
       </Layout>
     );
   }

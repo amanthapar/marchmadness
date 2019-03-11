@@ -12,14 +12,15 @@ export default class RequestRow extends Component {
     });
   };
   render() {
-    const { id, player, names, teams } = this.props;
+    console.log(this.props.team);
+    const { id, player, names, team } = this.props;
     const { Row, Cell } = Table;
 
     return (
       <Row>
         <Cell>{id}</Cell>
         <Cell>{names}</Cell>
-        <Cell>{teams}</Cell>
+        <Cell>{team}</Cell>
         <Cell>{player}</Cell>
         <Cell>
           {

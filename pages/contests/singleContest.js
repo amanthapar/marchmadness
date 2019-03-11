@@ -13,6 +13,7 @@ export default class SingleContest extends Component {
     const summary = await contest.methods.MarchMadnessdata(0).call();
     const manager = await contest.methods.manager().call();
     const players = await contest.methods.getPlayers().call();
+    const lastWinner = await contest.methods.lastWinner().call();
     const balance = await web3.eth.getBalance(props.query.address);
 
     return {
@@ -23,11 +24,19 @@ export default class SingleContest extends Component {
       managerName: summary[0],
       description: summary[1],
       imageUrl: summary[2],
+      lastWinner,
     };
   }
 
   renderSingleContest() {
-    const { balance, manager, managerName, players, description } = this.props;
+    const {
+      balance,
+      manager,
+      managerName,
+      players,
+      description,
+      lastWinner,
+    } = this.props;
 
     const items = [
       {
@@ -56,6 +65,12 @@ export default class SingleContest extends Component {
         header: players.length,
         meta: 'Number of contributions/Buy-ins',
         description: 'Number of people who have entered this contest',
+      },
+      {
+        header: lastWinner,
+        meta: 'Last Winner',
+        description: 'Address of Last Winner.',
+        style: { overflowWrap: 'break-word' },
       },
     ];
     return <Card.Group items={items} />;
